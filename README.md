@@ -17,14 +17,14 @@
 ### 불여우
 
 1. 불여우 확장인 [그리스멍키](https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/)를 설치합니다.
-1. [나무위키 펼침 사용자 스크립트](https://github.com/kinoru/namuwiki-unfold/blob/master/namuwiki-unfold.user.js)를 누르면 설치하겠냐고 물어봅니다. 그러라고 합시다.
+1. [나무위키 펼침 사용자 스크립트](https://github.com/kinoru/namuwiki-unfold/raw/master/namuwiki-unfold.user.js)를 누르면 설치하겠냐고 물어봅니다. 그러라고 합시다.
 
 ### 웹킷 기반 브라우저
 
 크롬, 사파리, 오페라 등의 웹킷 기반 브라우저에서는
 
 1. [탬퍼멍키](https://tampermonkey.net/)를 설치합니다.
-1. [나무위키 펼침 사용자 스크립트](https://github.com/kinoru/namuwiki-unfold/blob/master/namuwiki-unfold.user.js)를 누르면 설치하겠냐고 물어봅니다. 그러라고 합시다.
+1. [나무위키 펼침 사용자 스크립트](https://github.com/kinoru/namuwiki-unfold/raw/master/namuwiki-unfold.user.js)를 누르면 설치하겠냐고 물어봅니다. 그러라고 합시다.
 
 ## 사용법
 
