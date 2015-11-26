@@ -3,7 +3,7 @@
 // @namespace   http://e.xtendo.org
 // @description Convenient NamuWiki reading by unfolding footnotes
 // @include     https://namu.wiki/w/*
-// @version     1
+// @version     2
 // @grant       none
 // ==/UserScript==
 
@@ -20,6 +20,9 @@ function namuwiki_unfold() {
         );
         t.attr('data-href', t.attr('href'));
         t.removeAttr('href');
+    });
+    $('.wiki-fn-content').hover(function(){
+        $(this).css('text-decoration', 'none');
     });
 }
 
