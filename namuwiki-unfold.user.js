@@ -37,18 +37,69 @@ function namuwiki_fold() {
     });
 }
 
+function hintUglyLinks() {
+    let contents = $('.wiki-link-internal').parent().contents();
+    let internalLinkChecker = (elem) => {
+        return (
+            elem &&
+            elem.nodeName === 'A' &&
+            elem.classList.contains('wiki-link-internal') &&
+            elem.querySelector('img') === null
+        );
+    };
+    let buffer = [];
+    for (let i = 0; i < contents.length; i += 1) {
+        let content = contents[i];
+        if (internalLinkChecker(content)) {
+            if (content.parentNode.querySelectorAll('a.wiki-link-internal') < 2) {
+                continue;
+            }
+
+            if (internalLinkChecker(contents[i+1])) {
+                buffer.push(content.title);
+            }
+            else if (internalLinkChecker(contents[i-1])){
+                buffer.push(content.title);
+                let newElem = $('<span>');
+                newElem.addClass('namu-hint-ugly-links');
+                newElem.css(
+                    'cssText',
+                    'background:#EEE;padding:1px;border:1px solid #CCC;color:#666'
+                );
+                newElem.text(buffer.join(', '));
+                newElem.insertAfter($(content));
+                buffer = [];
+            }
+        }
+    }
+}
+
+function removeHints() {
+    $('span.namu-hint-ugly-links').remove();
+}
+
+function fold() {
+    namuwiki_fold();
+    removeHints();
+}
+
+function unfold() {
+    namuwiki_unfold();
+    hintUglyLinks();
+}
+
 document.addEventListener('keydown', function(e) {
     if (e.shiftKey && e.keyCode == 51) {
         if ($('.wiki-inner-content').attr('data-namuwiki-unfold') == 'true') {
-            namuwiki_fold();
+            fold();
         } else {
-            namuwiki_unfold();
+            unfold();
         }
     }
 }, true);
 
 $(document).on('pjax:end', function(){
-    namuwiki_unfold();
-})
+    unfold();
+});
 
-namuwiki_unfold();
+unfold();
